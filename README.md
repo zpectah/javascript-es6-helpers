@@ -102,50 +102,50 @@ name | string |
 
 ## { storage }
 
-### set(name, value)
+### storage.set(name, value)
 
 name | type | default value
 ------------ | ------------- | -------------
 name | string
 value | string
 
-### get(name) => string
+### storage.get(name) => string
 
 name | type | default value
 ------------ | ------------- | -------------
 name | string
 
-### remove(name)
+### storage.remove(name)
 
 name | type | default value
 ------------ | ------------- | -------------
 name | string
 
-### clearAll()
+### storage.clearAll()
 
 
 ## { session }
 
-### set(name, value)
+### session.set(name, value)
 
 name | type | default value
 ------------ | ------------- | -------------
 name | string
 value | string
 
-### get(name) => string
+### session.get(name) => string
 
 name | type | default value
 ------------ | ------------- | -------------
 name | string
 
-### remove(name)
+### session.remove(name)
 
 name | type | default value
 ------------ | ------------- | -------------
 name | string
 
-### clearAll()
+### session.clearAll()
 
 
 ### { element }
@@ -235,13 +235,13 @@ headers | object | { 'Content-Type': 'application/json' }
 
 ## { document }
 
-### onReady(callback) => callback(event)
+### document.onReady(callback) => callback(event)
 
 name | type | default value
 ------------ | ------------- | -------------
 callback | function
 
-### beforeUnload(callback) => callback(event)
+### document.beforeUnload(callback) => callback(event)
 
 name | type | default value
 ------------ | ------------- | -------------

@@ -15,7 +15,7 @@ const messages = {
     notValidObject: 'Not valid Object!'
 };
 
-export const date = {
+const date = {
     getTodayObject: function () {
         const D = new Date();
 
@@ -37,7 +37,7 @@ export const date = {
     },
 };
 
-export const number = {
+const number = {
     getTwoDecimal: function (
         number
     ) {
@@ -48,7 +48,7 @@ export const number = {
     },
 };
 
-export const string = {
+const string = {
     getRandom: function (
         length = 16,
         type = 'all'
@@ -100,7 +100,7 @@ export const string = {
     },
 };
 
-export const array = {
+const array = {
     add: function (
         array,
         item
@@ -127,7 +127,7 @@ export const array = {
     },
 };
 
-export const cookies = {
+const cookies = {
     set: function (
         name,
         value,
@@ -176,7 +176,7 @@ export const cookies = {
     },
 };
 
-export const storage = {
+const storage = {
     set: function (
         name,
         value
@@ -198,7 +198,7 @@ export const storage = {
     },
 };
 
-export const session = {
+const session = {
     set: function (
         name,
         value
@@ -220,7 +220,7 @@ export const session = {
     },
 };
 
-export const element = {
+const element = {
     get: function (
         selector,
         parent = document
@@ -376,7 +376,7 @@ export const element = {
     },
 };
 
-export const http = {
+const http = {
     ajax: function await (
         method,
         url,
@@ -400,7 +400,7 @@ export const http = {
     }
 };
 
-export const document = {
+const document = {
     onReady: function (callback) {
         return window.addEventListener('DOMContentLoaded', (e) => {
             if (callback && typeof callback == 'function') return callback(e);
@@ -413,4 +413,17 @@ export const document = {
             if (callback && typeof callback == 'function') return callback(e);
         });
     }
+};
+
+export default {
+    date: date,
+    number: number,
+    string: string,
+    array: array,
+    cookies: cookies,
+    storage: storage,
+    session: session,
+    element: element,
+    http: http,
+    document: document,
 };

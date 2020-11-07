@@ -415,7 +415,7 @@ const document = {
     }
 };
 
-export default {
+module.exports = exports = {
     date: date,
     number: number,
     string: string,

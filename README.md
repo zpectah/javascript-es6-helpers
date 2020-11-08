@@ -5,6 +5,10 @@ Most of these methods have error handling.
 
 Project is still in development, so please be patient.
 
+## Install
+
+``npm i github:zpectah/javascript-es6-helpers --save``
+
 ## Import
 
 ``import Helpers from 'javascript-es6-helpers';``
@@ -13,7 +17,7 @@ or
 
 ``import { date, number, string, array, cookies, storage, session, element, http, document } from 'javascript-es6-helpers';``
 
-... you can use
+you can use alias
 
 ``import { document as DocumentHelper } from 'javascript-es6-helpers';``
 

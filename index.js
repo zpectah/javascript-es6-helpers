@@ -378,7 +378,7 @@ const element = {
     },
     onLoad: function (element, callback) {
         if (element) {
-            return element.addEventListener('DOMContentLoaded', (e) => {
+            return element.addEventListener('load', (e) => {
                 if (callback && typeof callback == 'function') return callback(e);
             });
         } else {

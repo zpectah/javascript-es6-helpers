@@ -51,22 +51,24 @@ const number = {
 const string = {
     getRandom: function (
         length = 16,
-        type = 'all'
+        type = 'all',
+        patterns = {}
     ) {
         const subs = {
-            upper: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
-            lower: 'abcdefghijklmnopqrstuvwxyz',
+            uppercase: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
+            lowercase: 'abcdefghijklmnopqrstuvwxyz',
             number: '0123456789',
-            special: '_-'
+            special: '_-',
+            ...patterns
         };
         const get_string = () => {
-            let string = subs.upper + subs.lower + subs.number + subs.special;
+            let string = subs.uppercase + subs.lowercase + subs.number + subs.special;
             switch ( type ) {
                 case 'uppercase':
-                    string = subs.upper;
+                    string = subs.uppercase;
                     break;
                 case 'lowercase':
-                    string = subs.lower;
+                    string = subs.lowercase;
                     break;
                 case 'number':
                     string = subs.number;
@@ -374,11 +376,29 @@ const element = {
             console.warn(messages.elementNotSet);
         }
     },
+    onLoad: function (element, callback) {
+        if (element) {
+            return element.addEventListener('DOMContentLoaded', (e) => {
+                if (callback && typeof callback == 'function') return callback(e);
+            });
+        } else {
+            console.warn(messages.elementNotSet);
+        }
+    },
+    onDestroy: function (element, callback) {
+        if (element) {
+            return element.addEventListener('beforeunload', (e) => {
+                if (callback && typeof callback == 'function') return callback(e);
+            });
+        } else {
+            console.warn(messages.elementNotSet);
+        }
+    }
 };
 
 const http = {
     ajax: function await (
-        method,
+        method = 'GET',
         url,
         body,
         headers = {

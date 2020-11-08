@@ -28,7 +28,7 @@ you can use alias
 
 #### date.getTodayObject() => object{}
 
-#### date.getTimestampString() => string
+#### date.getTimestampString(separator?) => string
 
 name | type | default value
 ------------ | ------------- | -------------
@@ -46,12 +46,13 @@ number | number |
 
 ### { string }
 
-#### string.getRandom(length?, type?) => string
+#### string.getRandom(length?, type?, patterns?) => string
 
-name | type | default value
------------- | ------------- | -------------
+name | type | default value | options
+------------ | ------------- | ------------- | -------------
 length | number | 16
-type | string | 'all'
+type | string | 'all' | [uppercase, lowercase, number, special, all]
+patterns | object | { uppercase: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', lowercase: 'abcdefghijklmnopqrstuvwxyz', number: '0123456789', special: '_-' }
 
 #### string.getToken(length?, separator?) => string
 
@@ -165,7 +166,7 @@ name | type | default value
 selector | string |
 parent | node | document
 
-#### element.getAll(selector, parent?) => array[node]
+#### element.getAll(selector, parent?) => array[nodes]
 
 name | type | default value
 ------------ | ------------- | -------------
@@ -228,17 +229,31 @@ name | type | default value
 element | node
 attrsList | array
 
+#### element.onLoad(element, callback) => callback(event)
+
+name | type | default value
+------------ | ------------- | -------------
+element | node
+callback | function
+
+#### element.onDestroy(element, callback) => callback(event)
+
+name | type | default value
+------------ | ------------- | -------------
+element | node
+callback | function
+
 
 ## { http }
 
 #### http.ajax(method, url, body, headers?) => promise => object{}
 
-name | type | default value
------------- | ------------- | -------------
-method | string
+name | type | default value | options
+------------ | ------------- | ------------- | -------------
+method | string | 'GET' | [GET, POST, DELETE, UPDATE]
 url | string
 body | object
-headers | object | { 'Content-Type': 'application/json' }
+headers | object | {'Content-Type': 'application/json'}
 
 
 ## { document }

@@ -7,11 +7,15 @@ Project is still in development, so please be patient.
 
 ## Import
 
-``import * as jsHelpers from 'javascript-es6-helpers';'``
+``import Helpers from 'javascript-es6-helpers';``
 
 or
 
-``import { date, number, string, array, cookies, storage, session, element, http, document } from 'javascript-es6-helpers';'``
+``import { date, number, string, array, cookies, storage, session, element, http, document } from 'javascript-es6-helpers';``
+
+... you can use
+
+``import { document as DocumentHelper } from 'javascript-es6-helpers';``
 
 ## Method groups:
 
@@ -29,7 +33,7 @@ separator | string
 
 ### { number }
 
-#### number.getTwoDecimal(oneDigitNumber) => string
+#### number.getTwoDecimal(number) => string
 
 name | type | default value
 ------------ | ------------- | -------------

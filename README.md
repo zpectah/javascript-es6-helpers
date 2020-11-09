@@ -54,6 +54,13 @@ length | _number_ | 16
 type | _string_ | 'all' | [uppercase, lowercase, number, special, all]
 patterns | _object_ | { uppercase: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', lowercase: 'abcdefghijklmnopqrstuvwxyz', number: '0123456789', special: '_-' }
 
+#### string.getToken(length?, separator?) => string
+
+name | type | default value
+------------ | ------------- | -------------
+length | _number_ | 8
+separator | _string_ | '-'
+
 #### string.truncate(input, length?, end?) => [string, string?]
 
 name | type | default value

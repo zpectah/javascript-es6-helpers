@@ -15,7 +15,7 @@ Project is still in development, so please be patient.
 
 or
 
-``import { date, number, string, array, cookies, storage, session, element, http, document } from 'javascript-es6-helpers';``
+``import { date, number, string, array, cookies, storage, session, element, image, http, document } from 'javascript-es6-helpers';``
 
 you can use alias
 
@@ -54,12 +54,21 @@ length | number | 16
 type | string | 'all' | [uppercase, lowercase, number, special, all]
 patterns | object | { uppercase: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', lowercase: 'abcdefghijklmnopqrstuvwxyz', number: '0123456789', special: '_-' }
 
-#### string.getToken(length?, separator?) => string
+#### string.truncate(input, length?, end?) => [string, string?]
 
 name | type | default value
 ------------ | ------------- | -------------
-length | number | 8
-separator | string | '-'
+input | string
+length | number | 500
+end | string | '…'
+
+#### string.truncateFileName(fileName, length?, separator?) => string
+
+name | type | default value
+------------ | ------------- | -------------
+fileName | string
+length | number | 10
+separator | string | '…'
 
 
 ### { array }
@@ -229,19 +238,24 @@ name | type | default value
 element | node
 attrsList | array
 
-#### element.onLoad(element, callback) => callback(event)
+
+## { image }
+
+#### image.onLoad(element, callback) => callback(event)
 
 name | type | default value
 ------------ | ------------- | -------------
 element | node
 callback | function
 
-#### element.onDestroy(element, callback) => callback(event)
+
+## { data }
+
+#### data.dataURItoBlob(dataURI) => (binary:blob)
 
 name | type | default value
 ------------ | ------------- | -------------
-element | node
-callback | function
+dataURI | base64
 
 
 ## { http }

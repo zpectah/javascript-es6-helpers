@@ -100,6 +100,42 @@ const string = {
 
         return subs.a + separator + subs.b + separator + subs.c + separator + subs.d;
     },
+    truncate: function (
+        input,
+        length = 500,
+        end = '…'
+    ) {
+        if (input) {
+            let shouldTruncate = input.length >= length;
+            let truncated = shouldTruncate ? input.substring(0, length) : input;
+            let rest = shouldTruncate ? input.substring(length) : null;
+            if (shouldTruncate) {
+                return [
+                    truncated + end,
+                    rest,
+                ];
+            } else {
+                return [
+                    truncated
+                ];
+            }
+        } else {
+            return null;
+        }
+    },
+    truncateFileName: function (
+        fileName,
+        length = 10,
+        separator = '…'
+    ) {
+        let ext = fileName.substring(fileName.lastIndexOf(".") + 1, fileName.length).toLowerCase();
+        let name = fileName.replace('.'+ext,'');
+        if(name.length <= length) {
+            return fileName;
+        }
+        name = name.substr(0, length) + (fileName.length > length ? separator : '');
+        return name + '.' + ext;
+    },
 };
 
 const array = {
@@ -376,6 +412,9 @@ const element = {
             console.warn(messages.elementNotSet);
         }
     },
+};
+
+const image = {
     onLoad: function (element, callback) {
         if (element) {
             return element.addEventListener('load', (e) => {
@@ -385,15 +424,27 @@ const element = {
             console.warn(messages.elementNotSet);
         }
     },
-    onDestroy: function (element, callback) {
-        if (element) {
-            return element.addEventListener('beforeunload', (e) => {
-                if (callback && typeof callback == 'function') return callback(e);
-            });
-        } else {
-            console.warn(messages.elementNotSet);
+};
+
+const data = {
+    dataURItoBlob: function (
+        dataURI
+    ) {
+        let byteString;
+        if (dataURI.split(",")[0].indexOf("base64") >= 0)
+            byteString = atob(dataURI.split(",")[1]);
+            else byteString = unescape(dataURI.split(",")[1]);
+        let mimeString = dataURI
+            .split(",")[0]
+            .split(":")[1]
+            .split(";")[0];
+        let ia = new Uint8Array(byteString.length);
+        for (let i = 0; i < byteString.length; i++) {
+            ia[i] = byteString.charCodeAt(i);
         }
-    }
+
+        return new Blob([ia], { type: mimeString });
+    },
 };
 
 const http = {
@@ -444,6 +495,8 @@ module.exports = exports = {
     storage: storage,
     session: session,
     element: element,
+    image: image,
+    data: data,
     http: http,
     document: document,
 };

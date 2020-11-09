@@ -418,7 +418,7 @@ const image = {
     onLoad: function (element, callback) {
         if (element) {
             return element.addEventListener('load', (e) => {
-                if (callback && typeof callback == 'function') return callback(e);
+                if (callback && typeof callback == 'function') return callback(e, element);
             });
         } else {
             console.warn(messages.elementNotSet);

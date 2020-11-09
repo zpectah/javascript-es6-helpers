@@ -241,7 +241,7 @@ attrsList | _array_
 
 ### { image }
 
-#### image.onLoad(element, callback) => callback(event)
+#### image.onLoad(element, callback) => callback(event, element)
 
 name | type | default value
 ------------ | ------------- | -------------

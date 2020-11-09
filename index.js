@@ -449,9 +449,9 @@ const data = {
 
 const http = {
     ajax: function await (
-        method = 'GET',
         url,
-        body,
+        method = 'GET',
+        body = {},
         headers = {
             'Content-Type': 'application/json'
         }
@@ -460,7 +460,7 @@ const http = {
             url, {
                 method: method.toUpperCase(),
                 headers: headers,
-                body
+                ...body
             }
         )
         .then(resp => resp.json())
@@ -485,6 +485,7 @@ const view = {
         });
     }
 };
+
 
 module.exports = exports = {
     date: date,

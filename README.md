@@ -260,13 +260,13 @@ dataURI | _base64_
 
 ### { http }
 
-#### http.ajax(method, url, body, headers?) => promise => object{}
+#### http.ajax(url, method?, body?, headers?) => promise => object{}
 
 name | type | default value | options
 ------------ | ------------- | ------------- | -------------
-method | _string_ | 'GET' | [GET, POST, DELETE, UPDATE]
 url | _string_
-body | _object_
+method | _string_ | 'GET' | [GET, POST, DELETE, UPDATE]
+body | _object_ | {}
 headers | _object_ | {'Content-Type': 'application/json'}
 
 

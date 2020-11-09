@@ -231,6 +231,13 @@ name | type | default value
 element | _node_
 classList | _array_
 
+#### element.isClass(element, className) => boolean
+
+name | type | default value
+------------ | ------------- | -------------
+element | _node_
+className | _string_
+
 #### element.addAttr(element, attrsObject)
 
 name | type | default value
@@ -244,6 +251,13 @@ name | type | default value
 ------------ | ------------- | -------------
 element | _node_
 attrsList | _array_
+
+#### element.isAttr(element, attrName) => boolean
+
+name | type | default value
+------------ | ------------- | -------------
+element | _node_
+attrName | _string_
 
 
 ### { image }

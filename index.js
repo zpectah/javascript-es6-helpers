@@ -380,6 +380,18 @@ const element = {
             console.warn(messages.elementNotSet);
         }
     },
+    isClass: function (
+        element,
+        className
+    ) {
+        if (element) {
+            if (className) return element.classList.contains(className);
+        } else {
+            console.warn(messages.elementNotSet);
+
+            return null;
+        }
+    },
     addAttr: function (
         element,
         attrsObject
@@ -410,6 +422,18 @@ const element = {
             }
         } else {
             console.warn(messages.elementNotSet);
+        }
+    },
+    isAttr: function (
+        element,
+        attrName
+    ) {
+        if (element) {
+            if (attrName) return element.hasAttribute(attrName);
+        } else {
+            console.warn(messages.elementNotSet);
+
+            return null;
         }
     },
 };

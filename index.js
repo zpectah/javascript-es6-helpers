@@ -471,7 +471,7 @@ const http = {
     }
 };
 
-const document = {
+const view = {
     onReady: function (callback) {
         return window.addEventListener('DOMContentLoaded', (e) => {
             if (callback && typeof callback == 'function') return callback(e);
@@ -498,5 +498,5 @@ module.exports = exports = {
     image: image,
     data: data,
     http: http,
-    document: document,
+    view: view,
 };

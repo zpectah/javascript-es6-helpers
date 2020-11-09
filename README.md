@@ -11,15 +11,15 @@ Project is still in development, so please be patient.
 
 ## Import
 
-``import Helpers from 'javascript-es6-helpers';``
+``import jsES6Helpers from 'javascript-es6-helpers';``
 
 or
 
-``import { date, number, string, array, cookies, storage, session, element, image, http, document } from 'javascript-es6-helpers';``
+``import { date, number, string, array, cookies, storage, session, element, image, data, http, view } from 'javascript-es6-helpers';``
 
-you can use alias
+you can use aliases
 
-``import { document as DocumentHelper } from 'javascript-es6-helpers';``
+``import { view as viewHelper } from 'javascript-es6-helpers';``
 
 ## Method groups:
 
@@ -32,7 +32,7 @@ you can use alias
 
 name | type | default value
 ------------ | ------------- | -------------
-separator | string
+separator | _string_
 
 
 ### { number }
@@ -41,7 +41,7 @@ separator | string
 
 name | type | default value
 ------------ | ------------- | -------------
-number | number | 
+number | _number_ | 
 
 
 ### { string }
@@ -50,25 +50,25 @@ number | number |
 
 name | type | default value | options
 ------------ | ------------- | ------------- | -------------
-length | number | 16
-type | string | 'all' | [uppercase, lowercase, number, special, all]
-patterns | object | { uppercase: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', lowercase: 'abcdefghijklmnopqrstuvwxyz', number: '0123456789', special: '_-' }
+length | _number_ | 16
+type | _string_ | 'all' | [uppercase, lowercase, number, special, all]
+patterns | _object_ | { uppercase: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', lowercase: 'abcdefghijklmnopqrstuvwxyz', number: '0123456789', special: '_-' }
 
 #### string.truncate(input, length?, end?) => [string, string?]
 
 name | type | default value
 ------------ | ------------- | -------------
-input | string
-length | number | 500
-end | string | '…'
+input | _string_
+length | _number_ | 500
+end | _string_ | '…'
 
 #### string.truncateFileName(fileName, length?, separator?) => string
 
 name | type | default value
 ------------ | ------------- | -------------
-fileName | string
-length | number | 10
-separator | string | '…'
+fileName | _string_
+length | _number_ | 10
+separator | _string_ | '…'
 
 
 ### { array }
@@ -77,15 +77,15 @@ separator | string | '…'
 
 name | type | default value
 ------------ | ------------- | -------------
-array | array | 
-item | any | 
+array | _array_
+item | _any_
 
 #### array.remove(array, index) => array[]
 
 name | type | default value
 ------------ | ------------- | -------------
-array | array | 
-index | number | 
+array | _array_
+index | _number_
 
 
 ### { cookies }
@@ -94,76 +94,76 @@ index | number |
 
 name | type | default value
 ------------ | ------------- | -------------
-name | string |
-value | string |
-days | number | 365
-path | string | '/'
+name | _string_
+value | _string_
+days | _number_ | 365
+path | _string_ | '/'
 
 #### cookies.get(name) => string|null
 
 name | type | default value
 ------------ | ------------- | -------------
-name | string |
+name | _string_
 
 #### cookies.check(name) => boolean
 
 name | type | default value
 ------------ | ------------- | -------------
-name | string |
+name | _string_
 
 #### cookies.delete(name)
 
 name | type | default value
 ------------ | ------------- | -------------
-name | string |
+name | _string_
 
 
-## { storage }
+### { storage }
 
-### storage.set(name, value)
-
-name | type | default value
------------- | ------------- | -------------
-name | string
-value | string
-
-### storage.get(name) => string
+#### storage.set(name, value)
 
 name | type | default value
 ------------ | ------------- | -------------
-name | string
+name | _string_
+value | _string_
 
-### storage.remove(name)
-
-name | type | default value
------------- | ------------- | -------------
-name | string
-
-### storage.clearAll()
-
-
-## { session }
-
-### session.set(name, value)
+#### storage.get(name) => string
 
 name | type | default value
 ------------ | ------------- | -------------
-name | string
-value | string
+name | _string_
 
-### session.get(name) => string
-
-name | type | default value
------------- | ------------- | -------------
-name | string
-
-### session.remove(name)
+#### storage.remove(name)
 
 name | type | default value
 ------------ | ------------- | -------------
-name | string
+name | _string_
 
-### session.clearAll()
+#### storage.clearAll()
+
+
+### { session }
+
+#### session.set(name, value)
+
+name | type | default value
+------------ | ------------- | -------------
+name | _string_
+value | _string_
+
+#### session.get(name) => string
+
+name | type | default value
+------------ | ------------- | -------------
+name | _string_
+
+#### session.remove(name)
+
+name | type | default value
+------------ | ------------- | -------------
+name | _string_
+
+#### session.clearAll()
 
 
 ### { element }
@@ -172,116 +172,116 @@ name | string
 
 name | type | default value
 ------------ | ------------- | -------------
-selector | string |
-parent | node | document
+selector | _string_
+parent | _node_ | document
 
 #### element.getAll(selector, parent?) => array[nodes]
 
 name | type | default value
 ------------ | ------------- | -------------
-selector | string |
-parent | node | document
+selector | _string_
+parent | _node_ | document
 
 #### element.remove(element) => boolean
 
 name | type | default value
 ------------ | ------------- | -------------
-element | node |
+element | _node_
 
 #### element.create(tagName, content, parent?) => boolean
 
 name | type | default value
 ------------ | ------------- | -------------
-tagName | string
-content | string
-parent | node | document
+tagName | _string_
+content | _string_
+parent | _node_ | document
 
 #### element.append(parentElement, childElement) => boolean
 
 name | type | default value
 ------------ | ------------- | -------------
-parentElement | node
-childElement | node
+parentElement | _node_
+childElement | _node_
 
 #### element.addClass(element, classList)
 
 name | type | default value
 ------------ | ------------- | -------------
-element | node
-classList | array
+element | _node_
+classList | _array_
 
 #### element.removeClass(element, classList)
 
 name | type | default value
 ------------ | ------------- | -------------
-element | node
-classList | array
+element | _node_
+classList | _array_
 
 #### element.toggleClass(element, classList)
 
 name | type | default value
 ------------ | ------------- | -------------
-element | node
-classList | array
+element | _node_
+classList | _array_
 
 #### element.addAttr(element, attrsObject)
 
 name | type | default value
 ------------ | ------------- | -------------
-element | node
-attrsObject | object
+element | _node_
+attrsObject | _object_
 
 #### element.removeAttr(element, attrsList)
 
 name | type | default value
 ------------ | ------------- | -------------
-element | node
-attrsList | array
+element | _node_
+attrsList | _array_
 
 
-## { image }
+### { image }
 
 #### image.onLoad(element, callback) => callback(event)
 
 name | type | default value
 ------------ | ------------- | -------------
-element | node
-callback | function
+element | _node_
+callback | _function_
 
 
-## { data }
+### { data }
 
 #### data.dataURItoBlob(dataURI) => (binary:blob)
 
 name | type | default value
 ------------ | ------------- | -------------
-dataURI | base64
+dataURI | _base64_
 
 
-## { http }
+### { http }
 
 #### http.ajax(method, url, body, headers?) => promise => object{}
 
 name | type | default value | options
 ------------ | ------------- | ------------- | -------------
-method | string | 'GET' | [GET, POST, DELETE, UPDATE]
-url | string
-body | object
-headers | object | {'Content-Type': 'application/json'}
+method | _string_ | 'GET' | [GET, POST, DELETE, UPDATE]
+url | _string_
+body | _object_
+headers | _object_ | {'Content-Type': 'application/json'}
 
 
-## { document }
+### { view }
 
-### document.onReady(callback) => callback(event)
-
-name | type | default value
------------- | ------------- | -------------
-callback | function
-
-### document.beforeUnload(callback) => callback(event)
+#### view.onReady(callback) => callback(event)
 
 name | type | default value
 ------------ | ------------- | -------------
-callback | function
+callback | _function_
+
+#### view.beforeUnload(callback) => callback(event)
+
+name | type | default value
+------------ | ------------- | -------------
+callback | _function_
 
 

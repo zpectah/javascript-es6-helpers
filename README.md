@@ -26,7 +26,7 @@ you can use aliases
 
 ### { date }
 
-#### date.getTodayObject() => object{}
+#### date.getTodayObject() => object{year: number, month: number, day: number, hour: number, minute: number, second: number}
 
 #### date.getTimestampString(separator?) => string
 
@@ -106,7 +106,7 @@ value | _string_
 days | _number_ | 365
 path | _string_ | '/'
 
-#### cookies.get(name) => string|null
+#### cookies.get(name) => string
 
 name | type | default value
 ------------ | ------------- | -------------
@@ -281,7 +281,7 @@ dataURI | _base64_
 
 ### { http }
 
-#### http.ajax(url, method?, body?, headers?) => promise => object{}
+#### http.ajax(url, method?, body?, headers?) => promise => any
 
 name | type | default value | options
 ------------ | ------------- | ------------- | -------------

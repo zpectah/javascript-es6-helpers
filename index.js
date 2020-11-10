@@ -165,6 +165,21 @@ const array = {
     },
 };
 
+const object = {
+    search: function (
+        object,
+        search
+    ) {
+        if (object && typeof object == 'object') {
+            for (let [key, value] of Object.entries(object)) {
+                return value;
+            }
+        } else {
+            console.warn(messages.notValidObject);
+        }
+    }
+};
+
 const cookies = {
     set: function (
         name,
@@ -516,6 +531,7 @@ module.exports = exports = {
     number: number,
     string: string,
     array: array,
+    object: object,
     cookies: cookies,
     storage: storage,
     session: session,

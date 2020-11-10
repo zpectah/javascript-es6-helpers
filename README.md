@@ -95,6 +95,16 @@ array | _array_
 index | _number_
 
 
+### { object }
+
+#### object.search(object, search) => any
+
+name | type | default value
+------------ | ------------- | -------------
+object | _object_
+search | _string_
+
+
 ### { cookies }
 
 #### cookies.set(name, value, days?, path?)

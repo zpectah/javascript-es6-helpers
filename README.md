@@ -94,6 +94,19 @@ name | type | default value
 array | _array_
 index | _number_
 
+#### array.search(array, attrs, search) => array[]
+
+name | type | default value
+------------ | ------------- | -------------
+array | _array_
+attrs | _array_
+search | _string_
+
+##### Example:
+``
+array.search([{name: 'b', title: 'a'}, {name: 'c', title: 'd'}], ['name', 'title'], 'c'') => [{name: 'c', title: 'd'}]
+``
+
 
 ### { object }
 

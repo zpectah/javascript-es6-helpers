@@ -163,6 +163,22 @@ const array = {
 
         return array;
     },
+    search: function (
+        array,
+        attrs,
+        search
+    ) {
+        let na = [];
+        attrs.forEach(attr => {
+            na = [
+                ...na,
+                ...array.filter(item => {
+                    if (item[attr].includes(search)) return item;
+                })
+            ];
+        });
+        return na;
+    }
 };
 
 const object = {
@@ -525,6 +541,15 @@ const view = {
     }
 };
 
+const link = {
+    go: function (url, target = '_self') {
+        window.location.href = url;
+    },
+    goHome: function (url = '/') {
+        window.location.href = url;
+    }
+};
+
 
 module.exports = exports = {
     date: date,
@@ -540,4 +565,5 @@ module.exports = exports = {
     data: data,
     http: http,
     view: view,
+    link: link,
 };

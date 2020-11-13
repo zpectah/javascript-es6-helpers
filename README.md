@@ -104,7 +104,7 @@ search | _string_
 
 ##### Example:
 ``
-array.search([{name: 'b', title: 'a'}, {name: 'c', title: 'd'}], ['name', 'title'], 'c'') => [{name: 'c', title: 'd'}]
+array.search([{name: 'b', title: 'a', options: { idea: { name: 'x' }, value: 'y' }}, {name: 'c', title: 'd'}], ['name', 'title', 'options.idea.name'], 'c'') => [{name: 'c', title: 'd'}]
 ``
 
 

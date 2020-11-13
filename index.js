@@ -173,7 +173,26 @@ const array = {
             na = [
                 ...na,
                 ...array.filter(item => {
-                    if (item[attr].includes(search)) return item;
+                    if (attr.indexOf('.') > -1) {
+                        let cb = attr.split(/[,.]/);
+                        if (cb[0] && cb[1]) {
+                            if (item[cb[0]][cb[1]].includes(search)) return item;
+                        } else if (cb[0] && cb[2]) {
+                            if (item[cb[0]][cb[1]][cb[2]].includes(search)) return item;
+                        } else if (cb[0] && cb[3]) {
+                            if (item[cb[0]][cb[1]][cb[2]][cb[3]].includes(search)) return item;
+                        } else if (cb[0] && cb[4]) {
+                            if (item[cb[0]][cb[1]][cb[2][cb[3]][cb[4]]].includes(search)) return item;
+                        }
+
+
+                        // attr.split(/[,.]/)
+                        // if (item[attr.split('.')[0]][attr.split('.')[1]].includes(search)) return item;
+                    } else if (attr.indexOf('.') >= 1) {
+
+                    } else {
+                        if (item[attr].includes(search)) return item;
+                    }
                 })
             ];
         });

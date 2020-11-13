@@ -168,6 +168,7 @@ const array = {
         attrs,
         search
     ) {
+        // Up to five level object is possible to search => item[0][1][2][3][4] = value to search
         let na = [];
         attrs.forEach(attr => {
             na = [
@@ -184,12 +185,6 @@ const array = {
                         } else if (cb[0] && cb[4]) {
                             if (item[cb[0]][cb[1]][cb[2][cb[3]][cb[4]]].includes(search)) return item;
                         }
-
-
-                        // attr.split(/[,.]/)
-                        // if (item[attr.split('.')[0]][attr.split('.')[1]].includes(search)) return item;
-                    } else if (attr.indexOf('.') >= 1) {
-
                     } else {
                         if (item[attr].includes(search)) return item;
                     }

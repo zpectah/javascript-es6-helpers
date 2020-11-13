@@ -96,10 +96,10 @@ index | _number_
 
 #### array.search(array, attrs, search) => array[]
 
-name | type | default value
------------- | ------------- | -------------
+name | type | default value | description
+------------ | ------------- | ------------- | -------------
 array | _array_
-attrs | _array_
+attrs | _array_ | | Up to 5 level object search
 search | _string_
 
 ##### Example:

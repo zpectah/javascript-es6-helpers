@@ -186,7 +186,7 @@ const array = {
                             if (item[cb[0]][cb[1]][cb[2][cb[3]][cb[4]]].includes(search)) return item;
                         }
                     } else {
-                        if (item[attr].includes(search)) return item;
+                        if (item[attr] && item[attr].includes(search)) return item;
                     }
                 })
             ];

@@ -18,7 +18,12 @@ const messages = {
 const date = {
     getTodayObject: function () {
         const D = new Date();
-
+        const getDayOfTheYear = () => {
+            let start = new Date(D.getFullYear(), 0, 0);
+            let diff = (D - start) + ((start.getTimezoneOffset() - D.getTimezoneOffset()) * 60 * 1000);
+            let oneDay = 1000 * 60 * 60 * 24;
+            return Math.floor(diff / oneDay);
+        };
         return {
             year: D.getFullYear(),
             month: D.getMonth() + 1,
@@ -26,6 +31,8 @@ const date = {
             hour: D.getHours(),
             minute: D.getMinutes(),
             second: D.getSeconds(),
+            dayOfTheWeek: D.getDay(),
+            dayOfTheYear: getDayOfTheYear(),
         };
     },
     getTimestampString: function (

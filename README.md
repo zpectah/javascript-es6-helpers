@@ -26,7 +26,7 @@ you can use aliases
 
 ### { date }
 
-#### date.getTodayObject() => object{year: number, month: number, day: number, hour: number, minute: number, second: number}
+#### date.getTodayObject() => object{year: number, month: number, day: number, hour: number, minute: number, second: number, dayOfTheWeek: number, dayOfTheYear: number}
 
 #### date.getTimestampString(separator?) => string
 

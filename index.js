@@ -184,16 +184,16 @@ const array = {
                     if (attr.indexOf('.') > -1) {
                         let cb = attr.split(/[,.]/);
                         if (cb[0] && cb[1]) {
-                            if (item[cb[0]][cb[1]].includes(search)) return item;
+                            if (item[cb[0]][cb[1]].includes(search)) if (!na.includes(item)) return item;
                         } else if (cb[0] && cb[2]) {
-                            if (item[cb[0]][cb[1]][cb[2]].includes(search)) return item;
+                            if (item[cb[0]][cb[1]][cb[2]].includes(search)) if (!na.includes(item)) return item;
                         } else if (cb[0] && cb[3]) {
-                            if (item[cb[0]][cb[1]][cb[2]][cb[3]].includes(search)) return item;
+                            if (item[cb[0]][cb[1]][cb[2]][cb[3]].includes(search)) if (!na.includes(item)) return item;
                         } else if (cb[0] && cb[4]) {
-                            if (item[cb[0]][cb[1]][cb[2][cb[3]][cb[4]]].includes(search)) return item;
+                            if (item[cb[0]][cb[1]][cb[2][cb[3]][cb[4]]].includes(search)) if (!na.includes(item)) return item;
                         }
                     } else {
-                        if (item[attr] && item[attr].includes(search)) return item;
+                        if (item[attr] && item[attr].includes(search)) if (!na.includes(item)) return item;
                     }
                 })
             ];

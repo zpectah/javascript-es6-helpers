@@ -540,10 +540,10 @@ const http = {
             }
         )
         .then(resp => resp.json())
-        .then(response => response)
-        .catch(error => {
-            console.warn(error);
-        });
+        .then(response => response);
+        // .catch(error => {
+        //     console.warn(error);
+        // });
     }
 };
 

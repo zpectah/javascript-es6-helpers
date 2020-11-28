@@ -532,13 +532,14 @@ const http = {
             'Content-Type': 'application/json'
         }
     ) {
+        const init = {
+            method: method.toUpperCase(),
+            headers: headers,
+        }
+        if (init.method !== 'GET') init.body = JSON.stringify(data);
         return fetch(
             url,
-            {
-                method: method.toUpperCase(),
-                headers: headers,
-                body: JSON.stringify(data),
-            }
+            init
         )
         .then(resp => resp.json())
         .then(response => response);

@@ -521,6 +521,17 @@ const data = {
 
         return new Blob([ia], { type: mimeString });
     },
+    objectToFormData: function (
+        object
+    ) {
+        const fd = new FormData;
+
+        for ( let key in object ) {
+            fd.append(key, object[key]);
+        }
+
+        return fd;
+    }
 };
 
 const http = {

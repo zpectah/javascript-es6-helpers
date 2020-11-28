@@ -536,30 +536,14 @@ const http = {
             method: method.toUpperCase(),
             headers: headers,
         }
-        if (init.method !== 'GET') init.body = JSON.stringify(data);
+        // if (init.method !== 'GET') init.body = JSON.stringify(data);
+        if (init.method !== 'GET') init.body = data;
         return fetch(
             url,
             init
         )
         .then(resp => resp.json())
         .then(response => response);
-        // .catch(error => {
-        //     console.warn(error);
-        // });
-
-        // return async function () {
-        //     const response = await fetch(url, {
-        //         method: method.toUpperCase(),
-        //         // mode: 'cors',
-        //         // cache: 'no-cache',
-        //         // credentials: 'same-origin',
-        //         headers: headers,
-        //         // redirect: 'follow',
-        //         // referrerPolicy: 'no-referrer',
-        //         body: JSON.stringify(data)
-        //     });
-        //     return response.json();
-        // }
     }
 };
 

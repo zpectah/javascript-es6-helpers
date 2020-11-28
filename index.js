@@ -536,7 +536,7 @@ const http = {
     ajax: function await (
         url = '',
         method = 'GET',
-        data = {},
+        body = {},
         headers = {
             'Content-Type': 'application/json'
         }
@@ -547,7 +547,7 @@ const http = {
         }
         // if (init.method !== 'GET') init.body = JSON.stringify(data);
         // if (init.method !== 'GET') init.body = data;
-        if (init.method !== 'GET') init.body = data.objectToFormData(data);
+        if (init.method !== 'GET') init.body = data.objectToFormData(body);
         return fetch(
             url,
             init

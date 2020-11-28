@@ -533,10 +533,11 @@ const http = {
         }
     ) {
         return fetch(
-            url, {
+            url,
+            {
                 method: method.toUpperCase(),
                 headers: headers,
-                body: body,
+                body: JSON.stringify(body),
             }
         )
         .then(resp => resp.json())

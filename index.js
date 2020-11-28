@@ -525,9 +525,7 @@ const data = {
         object
     ) {
         const fd = new FormData();
-
         Object.keys(object).forEach(key => fd.append(key, object[key]));
-
         return fd;
     }
 };
@@ -544,9 +542,12 @@ const http = {
             method: method.toUpperCase(),
             headers: headers,
         }
-        // if (init.method !== 'GET') init.body = JSON.stringify(data);
-        // if (init.method !== 'GET') init.body = data;
         if (init.method !== 'GET') init.body = data.objectToFormData(body);
+        if (options.mode) init.mode = options.mode;
+        if (options.cache) init.cache = options.cache;
+        if (options.credentials) init.credentials = options.credentials;
+        if (options.redirect) init.redirect = options.redirect;
+        if (options.referrerPolicy) init.referrerPolicy = options.referrerPolicy;
         return fetch(
             url,
             init

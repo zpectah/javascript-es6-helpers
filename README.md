@@ -301,6 +301,12 @@ name | type | default value
 ------------ | ------------- | -------------
 dataURI | _base64_
 
+#### data.objectToFormData(object) => formData
+
+name | type | default value
+------------ | ------------- | -------------
+object | _object_
+
 
 ### { http }
 
@@ -311,7 +317,8 @@ name | type | default value | options
 url | _string_
 method | _string_ | 'GET' | [GET, POST, DELETE, UPDATE]
 body | _object_ | {}
-headers | _object_ | {'Content-Type': 'application/json'}
+headers | _object_ | {}
+options | _object_ | {} | [mode, cache, credentials, redirect, referrerPolicy]
 
 
 ### { view }

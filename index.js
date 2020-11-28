@@ -524,7 +524,7 @@ const data = {
 };
 
 const http = {
-    ajax: function (
+    ajax: function await (
         url = '',
         method = 'GET',
         data = {},
@@ -532,33 +532,33 @@ const http = {
             'Content-Type': 'application/json'
         }
     ) {
-        // return fetch(
-        //     url,
-        //     {
-        //         method: method.toUpperCase(),
-        //         headers: headers,
-        //         ...body,
-        //     }
-        // )
-        // .then(resp => resp.json())
-        // .then(response => response);
+        return fetch(
+            url,
+            {
+                method: method.toUpperCase(),
+                headers: headers,
+                body: JSON.stringify(data),
+            }
+        )
+        .then(resp => resp.json())
+        .then(response => response);
         // .catch(error => {
         //     console.warn(error);
         // });
 
-        return async function () {
-            const response = await fetch(url, {
-                method: method.toUpperCase(),
-                // mode: 'cors',
-                // cache: 'no-cache',
-                // credentials: 'same-origin',
-                headers: headers,
-                // redirect: 'follow',
-                // referrerPolicy: 'no-referrer',
-                body: JSON.stringify(data)
-            });
-            return response.json();
-        }
+        // return async function () {
+        //     const response = await fetch(url, {
+        //         method: method.toUpperCase(),
+        //         // mode: 'cors',
+        //         // cache: 'no-cache',
+        //         // credentials: 'same-origin',
+        //         headers: headers,
+        //         // redirect: 'follow',
+        //         // referrerPolicy: 'no-referrer',
+        //         body: JSON.stringify(data)
+        //     });
+        //     return response.json();
+        // }
     }
 };
 

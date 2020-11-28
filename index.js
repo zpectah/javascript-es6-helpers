@@ -537,9 +537,8 @@ const http = {
         url = '',
         method = 'GET',
         body = {},
-        headers = {
-            'Content-Type': 'application/json'
-        }
+        headers = {},
+        options = {},
     ) {
         const init = {
             method: method.toUpperCase(),

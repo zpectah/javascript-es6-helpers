@@ -548,7 +548,8 @@ const http = {
             headers: headers,
         }
         // if (init.method !== 'GET') init.body = JSON.stringify(data);
-        if (init.method !== 'GET') init.body = data;
+        // if (init.method !== 'GET') init.body = data;
+        if (init.method !== 'GET') init.body = data.objectToFormData(data);
         return fetch(
             url,
             init

@@ -536,7 +536,7 @@ const http = {
             url, {
                 method: method.toUpperCase(),
                 headers: headers,
-                ...body
+                body
             }
         )
         .then(resp => resp.json())

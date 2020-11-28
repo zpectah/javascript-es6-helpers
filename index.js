@@ -526,9 +526,7 @@ const data = {
     ) {
         const fd = new FormData;
 
-        for ( let key in object ) {
-            fd.append(key, object[key]);
-        }
+        Object.keys(object).forEach(key => fd.append(key, object[key]));
 
         return fd;
     }

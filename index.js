@@ -525,10 +525,12 @@ const data = {
 
 const http = {
     ajax: function (
-        url,
-        method,
-        body ,
-        headers
+        url = '',
+        method = 'GET',
+        data = {},
+        headers = {
+            'Content-Type': 'application/json'
+        }
     ) {
         // return fetch(
         //     url,
@@ -544,33 +546,19 @@ const http = {
         //     console.warn(error);
         // });
 
-        async function postData(
-            url = '',
-            method = 'GET',
-            data = {},
-            headers = {
-                'Content-Type': 'application/json'
-            }
-        ) {
+        return async function () {
             const response = await fetch(url, {
                 method: method.toUpperCase(),
-                mode: 'cors',
-                cache: 'no-cache',
-                credentials: 'same-origin',
+                // mode: 'cors',
+                // cache: 'no-cache',
+                // credentials: 'same-origin',
                 headers: headers,
-                redirect: 'follow',
-                referrerPolicy: 'no-referrer',
+                // redirect: 'follow',
+                // referrerPolicy: 'no-referrer',
                 body: JSON.stringify(data)
             });
             return response.json();
         }
-
-        return postData(
-            url,
-            method,
-            body,
-            headers
-        ).then(data => data);
     }
 };
 

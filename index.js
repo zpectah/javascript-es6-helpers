@@ -524,27 +524,53 @@ const data = {
 };
 
 const http = {
-    ajax: function await (
+    ajax: function (
         url,
-        method = 'GET',
-        body = {},
-        headers = {
-            'Content-Type': 'application/json'
-        }
+        method,
+        body ,
+        headers
     ) {
-        return fetch(
-            url,
-            {
-                method: method.toUpperCase(),
-                headers: headers,
-                ...body,
-            }
-        )
-        .then(resp => resp.json())
-        .then(response => response);
+        // return fetch(
+        //     url,
+        //     {
+        //         method: method.toUpperCase(),
+        //         headers: headers,
+        //         ...body,
+        //     }
+        // )
+        // .then(resp => resp.json())
+        // .then(response => response);
         // .catch(error => {
         //     console.warn(error);
         // });
+
+        async function postData(
+            url = '',
+            method = 'GET',
+            data = {},
+            headers = {
+                'Content-Type': 'application/json'
+            }
+        ) {
+            const response = await fetch(url, {
+                method: method.toUpperCase(),
+                mode: 'cors',
+                cache: 'no-cache',
+                credentials: 'same-origin',
+                headers: headers,
+                redirect: 'follow',
+                referrerPolicy: 'no-referrer',
+                body: JSON.stringify(data)
+            });
+            return response.json();
+        }
+
+        return postData(
+            url,
+            method,
+            body,
+            headers
+        ).then(data => data);
     }
 };
 

@@ -338,14 +338,14 @@ callback | _function_
 
 ### { link }
 
-#### link.go(url, target)
+#### link.go(url, target?)
 
 name | type | default value
 ------------ | ------------- | -------------
 url | _string
 target | _string_ | '_blank'
 
-#### link.goHome(url)
+#### link.goHome(url?)
 
 name | type | default value
 ------------ | ------------- | -------------

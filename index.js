@@ -201,7 +201,6 @@ const array = {
                             if (ch0 && ch0.prop) {
                                 if (typeof ch0.prop == 'string' && ch0.prop.includes(search)) {
                                     na.push(item);
-                                    console.log(item);
                                 } else {
 
                                     // item[1][*]
@@ -210,7 +209,6 @@ const array = {
                                             if (ch1 && ch1.prop) {
                                                 if (typeof ch1.prop == 'string' && ch1.prop.includes(search)) {
                                                     na.push(item);
-                                                    console.log(item);
                                                 } else {
 
                                                     // item[1][2][*]
@@ -219,7 +217,6 @@ const array = {
                                                             if (ch2 && ch2.prop) {
                                                                 if (typeof ch2.prop == 'string' && ch2.prop.includes(search)) {
                                                                     na.push(item);
-                                                                    console.log(item);
                                                                 } else {
 
                                                                     // item[1][2][3][*]
@@ -228,7 +225,6 @@ const array = {
                                                                             if (ch3 && ch3.prop) {
                                                                                 if (typeof ch3.prop == 'string' && ch3.prop.includes(search)) {
                                                                                     na.push(item);
-                                                                                    console.log(item);
                                                                                 } else {
 
                                                                                     // item[1][2][3][4][*]
@@ -237,7 +233,6 @@ const array = {
                                                                                             if (ch4 && ch4.prop) {
                                                                                                 if (typeof ch4.prop == 'string' && ch4.prop.includes(search)) {
                                                                                                     na.push(item);
-                                                                                                    console.log(item);
                                                                                                 } else {
 
                                                                                                     // item[1][2][3][4][5][*]
@@ -246,7 +241,6 @@ const array = {
                                                                                                             if (ch5 && ch5.prop) {
                                                                                                                 if (typeof ch5.prop == 'string' && ch5.prop.includes(search)) {
                                                                                                                     na.push(item);
-                                                                                                                    console.log(item);
                                                                                                                 } else {
 
                                                                                                                     // ...

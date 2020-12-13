@@ -95,16 +95,18 @@ array | _array_
 index | _number_
 
 #### array.search(array, attrs, search) => array[]
+- Unlimited level of object search
 
 name | type | default value | description
 ------------ | ------------- | ------------- | -------------
-array | _array_
-attrs | _array_ | | Up to 5 level object search
-search | _string_
+array | _array_ | | List of objects
+attrs | _array_ | | List of attributes
+search | _string_ | | Search string
+minLength | _number_ | 3 | Min length of search string to start search
 
 ##### Example:
 ``
-array.search([{name: 'b', title: 'a', options: { idea: { name: 'x' }, value: 'y' }}, {name: 'c', title: 'd'}], ['name', 'title', 'options.idea.name'], 'c'') => [{name: 'c', title: 'd'}]
+array.search([{name: 'b', title: 'a', options: { idea: { name: 'x' }, value: 'y' }}, {name: 'c', title: 'd'}], ['name', 'title', 'options.idea.name'], 'c') => [{name: 'c', title: 'd'}]
 ``
 
 

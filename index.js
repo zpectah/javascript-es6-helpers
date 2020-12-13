@@ -176,108 +176,31 @@ const array = {
         search,
         minLength = 3
     ) {
-        // Up to five level object is possible to search => item[0][1][2][3][4] = value to search
         let na = [];
-
-        function getChildren(prop, callback) {
-            if (prop) for (let key in prop) {
-                if ((prop && key) && prop.hasOwnProperty(key)) {
-                    if (callback && typeof callback == 'function') callback({
-                        key: key,
-                        prop: prop[key]
-                    });
+        const getChild = (item, parent, params) => {
+            if (item) {
+                for (let key in item) {
+                    if ((item && key) && item.hasOwnProperty(key)) {
+                        if (params && params.length > 0) params.map(param => {
+                            if (key === param) {
+                                if (typeof item[param] == 'string' && item[param].includes(search)) {
+                                    if (!(na.indexOf(parent) > -1)) na.push(parent);
+                                } else {
+                                    return getChild(item[param], parent, params);
+                                }
+                            }
+                        });
+                    }
                 }
             }
-        }
-
+        };
         if (search.length > minLength && array && array.length) {
             array.forEach(item => {
                 attrs.forEach(attr => {
                     let cb = attr.split(/[,.]/);
-
-                    // item[*]
-                    getChildren(item, ch0 => {
-                        if ((ch0 && cb[0]) && (ch0.key === cb[0])) {
-                            if (ch0 && ch0.prop) {
-                                if (typeof ch0.prop == 'string' && ch0.prop.includes(search)) {
-                                    na.push(item);
-                                } else {
-
-                                    // item[1][*]
-                                    getChildren(ch0.prop, ch1 => {
-                                        if ((ch1 && cb[1]) && (ch1.key === cb[1])) {
-                                            if (ch1 && ch1.prop) {
-                                                if (typeof ch1.prop == 'string' && ch1.prop.includes(search)) {
-                                                    na.push(item);
-                                                } else {
-
-                                                    // item[1][2][*]
-                                                    getChildren(ch1.prop, ch2 => {
-                                                        if ((ch2 && cb[2]) && (ch2.key === cb[2])) {
-                                                            if (ch2 && ch2.prop) {
-                                                                if (typeof ch2.prop == 'string' && ch2.prop.includes(search)) {
-                                                                    na.push(item);
-                                                                } else {
-
-                                                                    // item[1][2][3][*]
-                                                                    getChildren(ch2.prop, ch3 => {
-                                                                        if ((ch3 && cb[3]) && (ch3.key === cb[3])) {
-                                                                            if (ch3 && ch3.prop) {
-                                                                                if (typeof ch3.prop == 'string' && ch3.prop.includes(search)) {
-                                                                                    na.push(item);
-                                                                                } else {
-
-                                                                                    // item[1][2][3][4][*]
-                                                                                    getChildren(ch3.prop, ch4 => {
-                                                                                        if ((ch4 && cb[4]) && (ch4.key === cb[4])) {
-                                                                                            if (ch4 && ch4.prop) {
-                                                                                                if (typeof ch4.prop == 'string' && ch4.prop.includes(search)) {
-                                                                                                    na.push(item);
-                                                                                                } else {
-
-                                                                                                    // item[1][2][3][4][5][*]
-                                                                                                    getChildren(ch4.prop, ch5 => {
-                                                                                                        if ((ch5 && cb[5]) && (ch5.key === cb[5])) {
-                                                                                                            if (ch5 && ch5.prop) {
-                                                                                                                if (typeof ch5.prop == 'string' && ch5.prop.includes(search)) {
-                                                                                                                    na.push(item);
-                                                                                                                } else {
-
-                                                                                                                    // ...
-
-                                                                                                                }
-                                                                                                            }
-                                                                                                        }
-                                                                                                    });
-
-                                                                                                }
-                                                                                            }
-                                                                                        }
-                                                                                    });
-
-                                                                                }
-                                                                            }
-                                                                        }
-                                                                    });
-
-                                                                }
-                                                            }
-                                                        }
-                                                    });
-
-                                                }
-                                            }
-                                        }
-                                    });
-
-                                }
-                            }
-                        }
-                    });
-
+                    getChild(item, item, cb);
                 });
             });
-
         } else {
             na = array;
         }
